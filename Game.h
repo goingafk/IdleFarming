@@ -1,8 +1,21 @@
-//
-// Created by Arham Shikdar on 16/03/2025.
-//
+#pragma once
+#include <iostream>
+//Game.h
 
-#ifndef GAME_H
-#define GAME_H
+class Game {
+private:
+    float money;
+    float tempInventory;
+public:
+    //Setters
+    void setMoney(float m);
+    void setTempInventory(float t);
+    //Getters
+    float getMoney() const;
+    float getTempInventory() const;
 
-#endif //GAME_H
+    
+
+
+
+};
