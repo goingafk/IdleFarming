@@ -57,6 +57,14 @@ build CMakeFiles/IdleFarming.dir/main.cpp.o: CXX_COMPILER__IdleFarming_unscanned
   OBJECT_DIR = CMakeFiles/IdleFarming.dir
   OBJECT_FILE_DIR = CMakeFiles/IdleFarming.dir
 
+build CMakeFiles/IdleFarming.dir/Game.cpp.o: CXX_COMPILER__IdleFarming_unscanned_Debug /Users/yognaut305/CLionProjects/IdleFarming/Game.cpp || cmake_object_order_depends_target_IdleFarming
+  DEFINES = -DAPPLE=1
+  DEP_FILE = CMakeFiles/IdleFarming.dir/Game.cpp.o.d
+  FLAGS = -g -std=c++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/yognaut305/CLionProjects/IdleFarming/include
+  OBJECT_DIR = CMakeFiles/IdleFarming.dir
+  OBJECT_FILE_DIR = CMakeFiles/IdleFarming.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target IdleFarming
@@ -65,7 +73,7 @@ build CMakeFiles/IdleFarming.dir/main.cpp.o: CXX_COMPILER__IdleFarming_unscanned
 #############################################
 # Link the executable bin/IdleFarming
 
-build bin/IdleFarming: CXX_EXECUTABLE_LINKER__IdleFarming_Debug CMakeFiles/IdleFarming.dir/main.cpp.o
+build bin/IdleFarming: CXX_EXECUTABLE_LINKER__IdleFarming_Debug CMakeFiles/IdleFarming.dir/main.cpp.o CMakeFiles/IdleFarming.dir/Game.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk
   OBJECT_DIR = CMakeFiles/IdleFarming.dir
   POST_BUILD = :

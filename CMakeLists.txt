@@ -39,7 +39,9 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 # Add the executable
-add_executable(IdleFarming ${SOURCES} main.cpp)
+add_executable(IdleFarming ${SOURCES} main.cpp
+        Game.cpp
+        Game.h)
 
 # Set properties for the target
 set_target_properties(IdleFarming PROPERTIES
