@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <limits>
+
 //Game.h
 
 class Game {

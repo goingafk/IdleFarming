@@ -16,9 +16,16 @@ public:
     float getMoneySpent() const;
     float getGrowthRate() const;
 
-    void displayMode();
+    static void displayMode();
     void gameLoop();
     void userInput();
+
+    //Farming Actions
+    void planting();
+    void plantCheck();
+    void harvesting();
+    void exit();
+
 
 
 

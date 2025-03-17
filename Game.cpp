@@ -52,17 +52,23 @@ void Game::userInput() {
 
     switch (userInput) {
         case 1:
+            running = false;
             farmingMode();
-        break;
+            break;
         case 2:
+            running = false;
             inventoryMode();
-        break;
+            break;
         case 3:
+            running = false;
             marketMode();
-        break;
+            break;
         case 4:
+            running = false;
             exitGame();
+            break;
         default:
+            running = false;
             std::cout << "Invalid input.\n";
     }
 }
@@ -70,11 +76,7 @@ void Game::userInput() {
 void Game::gameLoop() {
     while (running) {
         //Clears the terminal
-        #ifdef WINDOWS
-                system("cls");
-        #else
-                system("clear");
-        #endif
+        system("cls");
         displayMode();
         userInput();
     }
@@ -82,19 +84,24 @@ void Game::gameLoop() {
 
 
 void Game::farmingMode() {
+    system("cls");
     std::cout << "Farming mode";
     Farming farming;
     farming.gameLoop();
+    running = true;
 }
 
 void Game::marketMode() {
+    system("cls");
     std::cout << "Market Mode";
 }
 
 void Game::inventoryMode() {
+    system("cls");
     std::cout << "Inventory mode";
 }
 
 void Game::exitGame() {
+    system("cls");
     running = false;
 }
