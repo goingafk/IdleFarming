@@ -83,6 +83,8 @@ void Game::gameLoop() {
 
 void Game::farmingMode() {
     std::cout << "Farming mode";
+    Farming farming;
+    farming.gameLoop();
 }
 
 void Game::marketMode() {

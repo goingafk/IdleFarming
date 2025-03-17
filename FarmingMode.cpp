@@ -16,6 +16,32 @@ void Farming::displayMode() {
 }
 
 void Farming::userInput() {
+    int userInput;
+    std::cin.clear();
+    std::cin >> userInput;
+    while (std::cin.fail()) {
+        std::cout << "Invalid input, please try again.\n";
+    }
 
+    switch (userInput) {
+        case 1:
+            std::cout << "Farming Input 1\n";
+            break;
+        case 2:
+            std::cout << "Farming Input 2\n";
+            break;
+        default:
+            std::cout << "Invalid input AA, please try again.\n";
+            break;
+    }
 }
+
+void Farming::gameLoop() {
+    while (running) {
+        displayMode();
+        userInput();
+    }
+}
+
+
 
