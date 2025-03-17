@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/yognaut305/CLionProjects/IdleFarming -B /Users/yognaut305/CLionProjects/IdleFarming/cmake-build-debug
--- Configuring done (0.0s)
+"C:\Program Files\JetBrains\CLion 2024.3.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\Lab_Dev\CLionProjects\IdleFarming -B C:\Users\Lab_Dev\CLionProjects\IdleFarming\cmake-build-debug
+-- Configuring done (0.2s)
 -- Generating done (0.0s)
--- Build files have been written to: /Users/yognaut305/CLionProjects/IdleFarming/cmake-build-debug
+-- Build files have been written to: C:/Users/Lab_Dev/CLionProjects/IdleFarming/cmake-build-debug

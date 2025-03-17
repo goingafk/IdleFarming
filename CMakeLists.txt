@@ -41,7 +41,9 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 # Add the executable
 add_executable(IdleFarming ${SOURCES} main.cpp
         Game.cpp
-        Game.h)
+        Game.h
+        FarmingMode.cpp
+        FarmingMode.h)
 
 # Set properties for the target
 set_target_properties(IdleFarming PROPERTIES
