@@ -5,6 +5,8 @@ private:
     float moneySpent;
     float growthRate;
 
+    float plantStatus;
+
     bool running;
 public:
     Farming();
@@ -20,13 +22,12 @@ public:
     void gameLoop();
     void userInput();
 
+    //Script daily start up
+    float growing();
+
     //Farming Actions
     void planting();
     void plantCheck();
-    void harvesting();
-    void exit();
-
-
-
+    void harvestPlant();
 
 };

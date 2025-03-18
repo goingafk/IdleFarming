@@ -30,7 +30,7 @@ void Game::displayMode() {
     cout << "       Welcome to the Farm!      \n";
     cout << "=================================\n";
     cout << "Here is how much money you have:\n";
-    cout << Game().getMoney() << '\n';
+    cout << getMoney() << '\n';
     cout << "=================================\n";
     cout << "1.Farming\n";
     cout << "2.Inventory\n";
@@ -74,8 +74,15 @@ void Game::userInput() {
 }
 
 void Game::gameLoop() {
+    bool doONce = true;
+    if (doONce == true) {
+        Farming farming;
+        farming.growing();
+        doONce = false;
+    }
     while (running) {
         //Clears the terminal
+
         system("cls");
         displayMode();
         userInput();
