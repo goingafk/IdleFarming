@@ -14,9 +14,12 @@ public:
     //Setters
     void setMoneySpent(float m);
     void setGrowthRate(float r);
+    void setPlantStatus(float s);
 
+    //Getters
     float getMoneySpent() const;
     float getGrowthRate() const;
+    float getPlantStatus() const;
 
     static void displayMode();
     void gameLoop();

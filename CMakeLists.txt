@@ -43,7 +43,9 @@ add_executable(IdleFarming ${SOURCES} main.cpp
         Game.cpp
         Game.h
         FarmingMode.cpp
-        FarmingMode.h)
+        FarmingMode.h
+        MarketMode.cpp
+        MarketMode.h)
 
 # Set properties for the target
 set_target_properties(IdleFarming PROPERTIES

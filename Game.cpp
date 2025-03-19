@@ -1,26 +1,27 @@
 #include "Game.h"
 #include "FarmingMode.h"
-
+#include "MarketMode.h"
 #include <iomanip>
 
 //Setters
 void Game::setMoney(float m) {
     this->money = m;
 }
-void Game::setTempInventory(float t) {
-    this->tempInventory = t;
+void Game::setInventory(float t) {
+    this->inventory = t;
 }
+
 //Getters
 float Game::getMoney() const {
     return this->money;
 }
-float Game::getTempInventory() const {
-    return this->tempInventory;
+float Game::getInventory() const {
+    return this->inventory;
 }
 
 Game::Game() {
     money = 100.0f;
-    tempInventory = 0.0f;
+    inventory = 0.0f;
     running = true;
 }
 
@@ -45,7 +46,8 @@ void Game::userInput() {
     std::cin.clear();
     std::cin >> userInput;
     while (std::cin.fail()) {
-        std::cout<< "Invalid Input, please re-enter";
+        std::cout<< "Invalid Input, please re-enter \n";
+        std::cin.clear();
         std::cin >> userInput;
     }
 
@@ -74,12 +76,6 @@ void Game::userInput() {
 }
 
 void Game::gameLoop() {
-    bool doONce = true;
-    if (doONce == true) {
-        Farming farming;
-        farming.growing();
-        doONce = false;
-    }
     while (running) {
         //Clears the terminal
 
@@ -93,7 +89,6 @@ void Game::gameLoop() {
 void Game::farmingMode() {
     system("cls");
     std::cout << "Farming mode";
-    Farming farming;
     farming.gameLoop();
     running = true;
 }
@@ -101,11 +96,13 @@ void Game::farmingMode() {
 void Game::marketMode() {
     system("cls");
     std::cout << "Market Mode";
+    running = true;
 }
 
 void Game::inventoryMode() {
     system("cls");
     std::cout << "Inventory mode";
+    running = true;
 }
 
 void Game::exitGame() {

@@ -1,23 +1,24 @@
 #pragma once
 #include <iostream>
 #include <limits>
-
+#include "FarmingMode.h"
 //Game.h
 
 class Game {
 private:
     float money{};
-    float tempInventory{};
+    int inventory{};
 
     bool running{};
 public:
     Game();
+    Farming farming;
     //Setters
     void setMoney(float m);
-    void setTempInventory(float t);
+    void setInventory(float t);
     //Getters
     float getMoney() const;
-    float getTempInventory() const;
+    float getInventory() const;
 
     //Game Loops
     void displayMode();
