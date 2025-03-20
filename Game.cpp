@@ -1,7 +1,6 @@
 #include "Game.h"
-#include "FarmingMode.h"
-#include "MarketMode.h"
 #include <iomanip>
+#include <iostream>
 
 //Setters
 void Game::setMoney(float m) {
@@ -10,6 +9,9 @@ void Game::setMoney(float m) {
 void Game::setInventory(float t) {
     this->inventory = t;
 }
+void Game::setRunning(bool r) {
+    this->running = r;
+}
 
 //Getters
 float Game::getMoney() const {
@@ -17,6 +19,9 @@ float Game::getMoney() const {
 }
 float Game::getInventory() const {
     return this->inventory;
+}
+bool Game::getRunning() const {
+    return this->running;
 }
 
 Game::Game() {
@@ -50,27 +55,25 @@ void Game::userInput() {
         std::cin.clear();
         std::cin >> userInput;
     }
-
-
     switch (userInput) {
         case 1:
-            running = false;
+            setRunning(false);
             farmingMode();
             break;
         case 2:
-            running = false;
+            setRunning(false);
             inventoryMode();
             break;
         case 3:
-            running = false;
+            setRunning(false);
             marketMode();
             break;
         case 4:
-            running = false;
+            setRunning(false);
             exitGame();
             break;
         default:
-            running = false;
+            setRunning(false);
             std::cout << "Invalid input.\n";
     }
 }
@@ -89,13 +92,15 @@ void Game::gameLoop() {
 void Game::farmingMode() {
     system("cls");
     std::cout << "Farming mode";
+    farming.setRunning(true);
     farming.gameLoop();
-    running = true;
+    setRunning(true);
 }
 
 void Game::marketMode() {
     system("cls");
     std::cout << "Market Mode";
+    market.gameLoop();
     running = true;
 }
 

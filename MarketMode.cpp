@@ -34,11 +34,7 @@ void Market::userInput() {
             break;
         default:
             std::cout << "Invalid choice, please try again.\n";
-
-
     }
-
-
 }
 
 void Market::gameLoop() {
