@@ -35,7 +35,7 @@ public:
     float growing();
 
     //Farming Actions
-    void planting();
+    void plantBuySell();
     void plantCheck();
     void harvestPlant();
 

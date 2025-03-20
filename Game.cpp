@@ -88,9 +88,7 @@ void Game::gameLoop() {
     }
 }
 
-
 void Game::farmingMode() {
-    system("cls");
     std::cout << "Farming mode";
     farming.setRunning(true);
     farming.gameLoop();

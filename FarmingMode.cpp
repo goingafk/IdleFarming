@@ -1,5 +1,8 @@
 #include "FarmingMode.h"
 #include <iostream>
+#include <cmath>
+#include <set>
+
 Farming::Farming() {
     moneySpent = 0.0f;
     growthRate = 1.2f;
@@ -9,12 +12,14 @@ Farming::Farming() {
 }
 //Setters
 void Farming::setMoneySpent(float m) {
+    m = std::round(m * 100)/ 100;
     this->moneySpent = m;
 }
 void Farming::setGrowthRate(float r) {
     this->growthRate = r;
 }
 void Farming::setPlantStatus(float s) {
+    s = std::round(s * 100)/ 100;
     this->plantStatus = s;
 }
 void Farming::setTempInventory(int i) {
@@ -40,6 +45,23 @@ bool Farming::getRunning() const {
     return this->running;
 }
 
+void clearScreen() {
+#ifdef WINDOWS
+    system("cls");
+#else
+    //
+    system("clear");
+#endif
+}
+
+void waitingInput() {
+#ifdef WINDOWS
+    system("pause");
+#else
+    system("read");
+#endif
+}
+
 //When the game starts play this script
 float Farming::growing() {
     setPlantStatus(plantStatus *= growthRate);
@@ -48,15 +70,14 @@ float Farming::growing() {
 
 void Farming::displayMode() {
     using namespace std;
-    cout << "\n" << "\n";
-    cout << "===========================\n";
-    cout << "Welcome to the farming menu\n";
-    cout << "===========================\n";
+    cout << "===============================\n";
+    cout << " Welcome to the farming menu\n";
+    cout << "===============================\n";
     cout << "1. Buy and Plant seeds\n";
     cout << "2. Check plant        \n";
     cout << "3. Harvest Plants     \n";
     cout << "4. Exit               \n";
-    cout << "===========================\n";
+    cout << "===============================\n";
 }
 
 void Farming::userInput() {
@@ -70,17 +91,17 @@ void Farming::userInput() {
 
     switch (userInput) {
         case 1:
-            running = false;
+            setRunning(false);
             std::cout << "Buy and plant mode\n";
-            planting();
+            plantBuySell();
             break;
         case 2:
-            running = false;
+            setRunning(false);
             std::cout << "Check Plant\n";
             plantCheck();
             break;
         case 3:
-            running = false;
+            setRunning(false);
             std::cout << "Harvest Plants\n";
             harvestPlant();
             break;
@@ -91,15 +112,25 @@ void Farming::userInput() {
             std::cout << "Invalid input AA, please try again.\n";
     }
 }
-void Farming::planting() {
-    running = true;
+
+void Farming::plantBuySell() {
+    std::cout << "Please enter plant's money\n";
+    int currentSpending;
+    std::cin >> currentSpending;
+    std::round(currentSpending);
+    currentSpending = currentSpending + getPlantStatus();
+    setPlantStatus(currentSpending);
+    std::cout << "Current Spend is: " << getMoneySpent() << 'n';
+    waitingInput();
+    setRunning(true);
 }
+
 
 void Farming::plantCheck() {
     std::cout << "Here is the current plant growth: ";
     std::cout << getPlantStatus() << '\n';
-    std::cin.get();
-    running = true;
+    waitingInput();
+    setRunning(true);
 }
 
 void Farming::harvestPlant() {
@@ -108,19 +139,17 @@ void Farming::harvestPlant() {
     setPlantStatus(getPlantStatus() - static_cast<float>(wholeInv));
     setTempInventory(wholeInv);
 
-    std::cout << "Current inventory" << getTempInventory() << '\n';
-    std::cout << "Current plant status" << getPlantStatus() << '\n';
-    std::cout << '\n' << "Press any key to continue.\n";
-    std::cin.get();
-
+    std::cout << "Current inventory: " << getTempInventory() << '\n';
+    std::cout << "Current plant status: " << getPlantStatus() << '\n';
+    waitingInput();
     running = true;
 
 }
 
 void Farming::gameLoop() {
     growing();
-    while (running) {
-        system("cls");
+    while (getRunning()) {
+        clearScreen();
         displayMode();
         userInput();
     }
